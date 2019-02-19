@@ -14,7 +14,11 @@ button{
   padding: 10px;
   border: 0px;
   border-radius: 5px;
+}
 
+button:hover{
+  cursor: pointer;
+  background-color: #fbb4b7;
 }
 
 .container{
@@ -27,8 +31,18 @@ button{
   margin-bottom: 10px;
 }
 
+.name-label:hover{
+  cursor: pointer;
+  background-color: #fbd4e5;
+}
+
 .length{
   font-size: 35px;
+}
+
+.increment:hover{
+  cursor: pointer;
+  background-color: #fbd4e5; 
 }
 
 #settings{
