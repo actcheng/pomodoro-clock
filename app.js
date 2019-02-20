@@ -75,7 +75,7 @@ function countDown(){
           }
         }
         changeTimeLeftText();
-      },10);
+      },1000);
     } else {
       $(startStop_div).text('Start');
       clearInterval(x);
