@@ -91,7 +91,7 @@ function countDown(){
           }
         }
         changeTimeLeftText();
-      },1);
+      },1000);
     } else {
       stopCounting();
     }
@@ -108,7 +108,7 @@ function countOvertime(){
       overtimeSec -= 60;
     }
     changeOvertimeText();
-  },10);
+  },1000);
 }
 
 function timeUp(){
