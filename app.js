@@ -67,16 +67,16 @@ function updateValue(type,increment){
 
 // Counting
 function countDown(){
-  if (timeLeftSec == 0 && timeLeftMin==0){
+  if (timeLeftSec+timeLeftMin+overtimeMin+overtimeSec == 0){
     resetValue();
   } else {
     counting = !counting
     beep_div.pause();
     beep_div.currentTime = 0;
-    clearOverTime();
-    $('#overtime-panel').hide();
 
     if (counting){
+      clearOverTime();
+      $('#overtime-panel').hide();
       $(startStop_div).text('Stop');
       x = setInterval(function(){
         timeLeftSec -= 1;
@@ -93,8 +93,8 @@ function countDown(){
         changeTimeLeftText();
       },1000);
     } else {
-      $(startStop_div).text('Start');
-      clearInterval(x);
+
+      stopCounting()
     }
   }
 }
@@ -174,11 +174,13 @@ function resetValue(){
 
 function stopCounting(){
   if ($('#overtime-panel').is(':visible')){
-    $('#save-overtime').fadeToggle(500);
+    $('#save-overtime').fadeIn(500);
+    clearInterval(x);
   }
   if (counting){
-    counting = !counting;
-    countDown();
+    counting = !counting
+    $(startStop_div).text('Start');
+    clearInterval(x);
   }
 }
 
@@ -208,6 +210,7 @@ function main(){
     updateValue('longBreak',-1);
   });
   $('#start_stop').click(function(){
+
     countDown();
   });
   $('#reset').click(function(){
