@@ -6,10 +6,18 @@
 </head>
 <body>
   <div id="timer">
-    <div id="timer-label">Session</div>
+    <div id="timer-label">Productivity Time</div>
     <div id="time-left">25:00</div>
     <button id="start_stop">Start</button>
     <button id="reset">Reset</button>
+    <div id="overtime-panel" hidden>
+      <div id="overtime">+00:00</div>
+      <div id="save-overtime">
+        <button id="to-session" class="overtime-to">P</button>
+        <button id="to-sbreak" class="overtime-to">S</button>
+        <button id="to-lbreak" class="overtime-to">L</button>
+      </div>
+    </div>
   </div>
   <div id="settings">
     <div id="container-session" class="container">
