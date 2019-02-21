@@ -93,7 +93,8 @@ function countDown(){
         changeTimeLeftText();
       },1000);
     } else {
-      stopCounting();
+      $(startStop_div).text('Start');
+      clearInterval(x);
     }
   }
 }
@@ -177,8 +178,7 @@ function stopCounting(){
   }
   if (counting){
     counting = !counting;
-    $(startStop_div).text('Start');
-    clearInterval(x);
+    countDown();
   }
 }
 
