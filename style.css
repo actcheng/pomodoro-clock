@@ -59,7 +59,10 @@ button:hover{
 }
 
 #timer{
+  position: relative;
+  margin: auto;
   margin-top: 30px;
+  width: 400px;
 }
 
 #timer-label{
@@ -74,8 +77,8 @@ button:hover{
 
 #overtime-panel{
   position: absolute;
-  right: 140px;
-  top: 110px;
+  right: 5%;
+  top: 30%;
 }
 
 #overtime{

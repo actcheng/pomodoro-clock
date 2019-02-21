@@ -93,7 +93,6 @@ function countDown(){
         changeTimeLeftText();
       },1000);
     } else {
-
       stopCounting()
     }
   }
@@ -119,9 +118,7 @@ function timeUp(){
 }
 
 function changeSession(type){
-  if (counting){
-    countDown();
-  }
+  stopCounting();
   timerLabel = settings[type].text;
   timeLeftMin = settings[type].length;
   timeLeftSec = 0;
@@ -169,23 +166,18 @@ function resetValue(){
   beep_div.currentTime = 0;
   stopCounting();
   changeSession(timerType);
-  //clearOverTime();
 }
 
 function stopCounting(){
+  clearInterval(x);
   if ($('#overtime-panel').is(':visible')){
     $('#save-overtime').fadeIn(500);
-    clearInterval(x);
   }
-  if (counting){
-    counting = !counting
-    $(startStop_div).text('Start');
-    clearInterval(x);
-  }
+  $(startStop_div).text('Start');
+  counting = false;
 }
 
 function main(){
-  $('#overtime-panel').hide();
   changeSession('session');
   updateValue('session',0);
   updateValue('shortBreak',0);
