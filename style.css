@@ -34,7 +34,6 @@ button:hover{
 .name-label{
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .name-label:hover{
@@ -49,6 +48,11 @@ button:hover{
 .increment:hover{
   cursor: pointer;
   background-color: #fbd4e5;
+}
+
+.total{
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 #settings{
@@ -83,4 +87,22 @@ button:hover{
 
 #overtime{
   font-size: 24px;
+}
+
+#summary{
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+  #settings{
+    margin-left: 10%;
+    grid-template-columns: 40% 25% 25%;
+  }
+  .name-label{
+    font-size: 15px;
+  }
+  .total{
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
 }

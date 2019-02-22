@@ -1,10 +1,12 @@
 <head>
+  <link rel="shortcut icon" href="clock.ico" />
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <title>Pomodoro Clock</title>
 </head>
 <body>
+  <meta name="viewport" content="width=device-width">
   <div id="timer">
     <div id="timer-label">Productivity Time</div>
     <div id="time-left">25:00</div>
@@ -22,18 +24,21 @@
   <div id="settings">
     <div id="container-session" class="container">
       <div id="session-label" class="name-label">Productivity Time</div>
+      <div id="session-total" class="total">0 min</div>
       <div id="session-increment" class='increment'><i class="fas fa-chevron-up"></i></div>
       <div id="session-length" class="length">25</div>
       <div id="session-decrement" class='increment'><i class="fas fa-chevron-down"></i></div>
     </div>
     <div id="container-sbreak" class="container">
       <div id="sbreak-label" class="name-label">Short Break</div>
+      <div id="sbreak-total" class="total">0 min</div>
       <div id="sbreak-increment" class='increment'><i class="fas fa-chevron-up"></i></div>
       <div id="sbreak-length" class="length">5</div>
       <div id="sbreak-decrement" class='increment'><i class="fas fa-chevron-down"></i></div>
     </div>
     <div id="container-lbreak" class="container">
       <div id="lbreak-label" class="name-label">Long Break</div>
+      <div id="lbreak-total" class="total">0 min</div>
       <div id="lbreak-increment" class='increment'><i class="fas fa-chevron-up"></i></div>
       <div id="lbreak-length" class="length">15</div>
       <div id="lbreak-decrement" class='increment'><i class="fas fa-chevron-down"></i></div>

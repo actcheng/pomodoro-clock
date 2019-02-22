@@ -2,26 +2,31 @@ $(document).ready(function() {
 
 });
 
+let titleDefault = 'Pomodoro Clock';
+let intv = 1000;
 let settings = {
   session: {
     length_div : document.getElementById('session-length'),
+    total_div : document.getElementById('session-total'),
     lengthDefault: 25,
     length: 25,
     text: 'Productivity Time'
   },
   shortBreak: {
     length_div : document.getElementById('sbreak-length'),
+    total_div : document.getElementById('sbreak-total'),
     lengthDefault: 5,
     length: 5,
     text: 'Short Break'
   },
   longBreak: {
     length_div : document.getElementById('lbreak-length'),
+    total_div : document.getElementById('lbreak-total'),
     lengthDefault: 15,
     length: 15,
     text: 'Long Break'
   },
-}
+};
 
 let records = {
   session: {
@@ -36,7 +41,7 @@ let records = {
     count: 0,
     duration: 0
   }
-}
+};
 
 let startStop_div     = document.getElementById('start_stop');
 let timerLabel_div    = document.getElementById('timer-label');
@@ -91,7 +96,7 @@ function countDown(){
           }
         }
         changeTimeLeftText();
-      },1000);
+      },intv);
     } else {
       stopCounting()
     }
@@ -103,12 +108,12 @@ function countOvertime(){
   $('#save-overtime').hide();
   x = setInterval(function(){
     overtimeSec += 1;
-    if (overtimeSec >60){
+    if (overtimeSec >59){
       overtimeMin += 1;
       overtimeSec -= 60;
     }
     changeOvertimeText();
-  },1000);
+  },intv);
 }
 
 function timeUp(){
@@ -131,11 +136,15 @@ function changeSession(type){
 function changeOvertimeText(){
   let overtime = '+'+('0'+overtimeMin).slice(-2)+':'+('0'+overtimeSec).slice(-2)
   $(overtime_div).text(overtime);
+  if (overtimeMin+overtimeSec > 0){
+    $('title').text(' ('+overtime+')'+titleDefault);
+  }
 }
 
 function changeTimeLeftText(){
   let timeLeft = ('0'+timeLeftMin).slice(-2)+':'+('0'+timeLeftSec).slice(-2)
   $(timeLeft_div).text(timeLeft);
+  $('title').text('('+timeLeft+')'+titleDefault);
 }
 
 // Update records
@@ -144,6 +153,7 @@ function updateRecord(timePassedMin,type,addCount){
     records[type].count += 1;
   }
   records[type].duration += timePassedMin
+  $(settings[type].total_div).text(records[type].duration+' min');
   console.log(type,records[type])
 }
 
@@ -166,6 +176,7 @@ function resetValue(){
   beep_div.currentTime = 0;
   stopCounting();
   changeSession(timerType);
+  $('title').text(titleDefault);
 }
 
 function stopCounting(){
@@ -182,6 +193,7 @@ function main(){
   updateValue('session',0);
   updateValue('shortBreak',0);
   updateValue('longBreak',0);
+  $('title').text(titleDefault);
 
   $('#session-increment').click(function(){
     updateValue('session',1);
