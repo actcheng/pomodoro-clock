@@ -162,6 +162,7 @@ function updateOvertimeRecord(timePassedMin,type){
   stopCounting();
   $('#overtime-panel').fadeToggle(500);
   setTimeout(function(){ clearOverTime() },500);
+  $('title').text(titleDefault);
 }
 
 // Resetting
